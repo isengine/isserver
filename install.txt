@@ -1,0 +1,21 @@
+unpack to 'c:\isServer'
+
+'nginx'
+from 'https://nginx.org/ru/download.html'
+to 'nginx'
+
+'php' (Thread Safe)
+from 'https://windows.php.net/download#php-8.0'
+to 'php'
+
+'composer.phar'
+from 'https://github.com/composer/composer/releases'
+to 'composer'
+
+'RunHiddenConsole.exe'
+from 'https://redmine.lighttpd.net/attachments/660/RunHiddenConsole.zip'
+to 'console'
+
+'mkcert.exe'
+from 'https://github.com/FiloSottile/mkcert/releases'
+to 'ssl'
