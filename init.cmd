@@ -107,28 +107,6 @@ rem SET VARIABLES IN ARRAY;
 rem END OF SET VARIABLES IN ARRAY;
 echo - PHP v%php%
 
-
-
-echo.
-set "is=Yes"
-set /p "is=Is install composer (%is%)? "
-rem SET VARIABLES YES OR NO;
-
-    set "variants=0 "0" "N" "NO" "No" "no" "n""
-    for %%a in (%variants%) do (
-        if %is%==%%~a (
-            set is=0
-        )
-    )
-
-    set "print=Yes"
-    if %is%==0 (
-        set "print=No"
-    )
-
-rem END OF SET VARIABLES YES OR NO;
-echo - %print%
-
 rem echo.
 rem echo 1 - FIRST.
 rem echo 2 - SECOND.
@@ -136,19 +114,19 @@ rem echo 3 - THIRD.
 rem echo 4 - FOURTH.
 rem echo other - EXIT.
 rem set /p sym=SELECT:
-rem 
+
 rem if "%sym%"=="1" (call C:\MB2016\Files\Debits)
 rem if "%sym%"=="2" (call C:\MB2016\Files\Debits\D.bat)
 rem if "%sym%"=="3" (call C:\MB2016\Files\Kredits)
 rem if "%sym%"=="4" (call C:\MB2016\Files\Debits\K.bat)
 
-echo.Preparing Nginx config...
-call :configNginx
-echo. - File created
+rem echo.Preparing Nginx config...
+rem call :configNginx
+rem echo. - File created
 
-echo.Preparing FastCGI config...
-call :configFastcgi
-echo. - File created
+rem echo.Preparing FastCGI config...
+rem call :configFastcgi
+rem echo. - File created
 
 endlocal >nul
 exit /b
