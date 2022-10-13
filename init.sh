@@ -13,6 +13,19 @@ echo
 echo Server will be installed to the current folder:
 echo - $path
 
+## Set variables;
+
+echo
+read -e -p "Set domain: " -i "server.com" domain
+
+echo
+read -e -p "Set local ip: " -i "127.0.0.0" ip
+
+#set "versions="7.4.32" "8.0.24" "8.1.11""
+# SET VARIABLES IN ARRAY;
+# END OF SET VARIABLES IN ARRAY;
+#echo - PHP v%php%
+
 ## Create structure;
 #read -e -p "Do you want to continue install/reinstall (y/n)? " -i "y" confirm && [[ $confirm == [yY] ]] || exit 1
 
@@ -43,96 +56,16 @@ echo
 read -e -p "Do you want download and setup Server (y/n)? " -i "y" confirm
 if [[ $confirm == [yY] ]]
 then
-    source ./scripts/server.sh $path
+    source ./scripts/server.sh $path $domain $ip
 fi
 
 echo
 read -e -p "Do you want download and install Certificate (y/n)? " -i "y" confirm
 if [[ $confirm == [yY] ]]
 then
-    source ./scripts/certificate.sh $path
+    source ./scripts/certificate.sh $path $domain $ip
 fi
 
-## Set variables;
-
 echo
-#set "domain=mydomain.com"
-#set /p "domain=Set domain (%domain%): "
-#echo - %domain%
-
+echo FINAL
 echo
-#set "ip=127.0.0.0"
-#set /p "ip=Set local ip (%ip%): "
-#echo - %ip%
-
-echo
-#set "versions="7.4.32" "8.0.24" "8.1.11""
-# SET VARIABLES IN ARRAY;
-
-#    set n=0
-#    for %%a in (%versions%) do (
-#        if !n!==0 (
-#            echo Select PHP version or enter your own ^(%%~a^)^:
-#            set "php=%%~a"
-#        )
-#        set /A n+=1
-#        echo !n!. %%~a
-#    )
-#
-#    set phpc=0
-#    set /p "phpc=Your choise: "
-#
-#    if not %phpc%==0 (
-#        set php=%phpc%
-#        set n=0
-#        for %%a in (%versions%) do (
-#            set /A n+=1
-#            if "!n!"=="%phpc%" (
-#                set php=%%~a
-#            )
-#        )
-#    )
-
-# END OF SET VARIABLES IN ARRAY;
-#echo - PHP v%php%
-
-#exit /b
-
-#:savefile
-#
-#if not exist "%folder%" md "%folder%"
-#set "file=%folder%%filename%"
-#rem:> "%file%"
-#
-#exit /b
-#
-#:savetext
-#
-#set "file=%folder%%filename%"
-#echo %1>> "%file%"
-#
-#exit /b
-#
-#:configNginx
-#
-#set "folder=%path%\test\"
-#set "filename=nginx.ini"
-#
-#rem call :savefile
-#rem call :savetext "<sysid>other no %ip%</sysid>"
-#rem call %path%\scripts\nginx %folder%%filename%
-#
-#exit /b
-#
-#:configFastcgi
-#
-#set "folder=%path%\test\"
-#set "filename=fastcgi.ini"
-#
-#rem call :savefile
-#rem call :savetext "<sysid>other no %ip%</sysid>"
-#rem call %path%\scripts\fastcgi %folder%%filename%
-#
-#exit /b
-
-echo === FINAL ===

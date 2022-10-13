@@ -1,3 +1,3 @@
 call stop.cmd
-call server.cmd
+call run.cmd
 exit /b
