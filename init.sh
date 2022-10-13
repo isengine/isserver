@@ -19,10 +19,38 @@ echo - $path
 ## Open links;
 
 echo
-read -e -p "Do you want download and install required applications (y/n)? " -i "y" confirm
+read -e -p "Do you want download and install Nginx (y/n)? " -i "y" confirm
 if [[ $confirm == [yY] ]]
 then
-    source ./scripts/openlinks.sh $path
+    source ./scripts/nginx.sh
+fi
+
+echo
+read -e -p "Do you want download and install PHP-fpm (y/n)? " -i "y" confirm
+if [[ $confirm == [yY] ]]
+then
+    source ./scripts/phpfpm.sh
+fi
+
+echo
+read -e -p "Do you want download and install MySQL (y/n)? " -i "y" confirm
+if [[ $confirm == [yY] ]]
+then
+    source ./scripts/mysql.sh
+fi
+
+echo
+read -e -p "Do you want download and setup Server (y/n)? " -i "y" confirm
+if [[ $confirm == [yY] ]]
+then
+    source ./scripts/server.sh $path
+fi
+
+echo
+read -e -p "Do you want download and install Certificate (y/n)? " -i "y" confirm
+if [[ $confirm == [yY] ]]
+then
+    source ./scripts/certificate.sh $path
 fi
 
 ## Set variables;
@@ -107,4 +135,4 @@ echo
 #
 #exit /b
 
-echo === FINALLY ===
+echo === FINAL ===
